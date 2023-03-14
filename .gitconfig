@@ -1,0 +1,16 @@
+[pull]
+	ff = only
+[user]
+	name = HenryLie
+	email = 11569345+HenryLie@users.noreply.github.com
+[core]
+	editor = nvim
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
+[alias]
+	df = diff
+	dt = difftool
+[init]
+	defaultBranch = main
