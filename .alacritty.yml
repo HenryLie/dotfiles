@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 0.75
 
   # Startup Mode (changes require restart)
   #
@@ -200,9 +200,9 @@ colors:
   name: Lost Woods
   author: Baskerville
   primary:
-    # background: "#000000"
+    background: "#000000"
     # The background color is taken from Nightfly
-    background: "#011627"
+    # background: "#011627"
     foreground: "#919191"
 
     # Bright and dim foreground colors
