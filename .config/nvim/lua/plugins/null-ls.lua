@@ -1,28 +1,22 @@
 return {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    -- opts = function()
-    --   local nls = require("null-ls")
-    --   return {
-    --     sources = {
-    --       -- nls.builtins.formatting.prettierd,
-    --       nls.builtins.formatting.eslint_d,
-    --       nls.builtins.formatting.stylelint.with({
-    --         extra_filetypes = { "svelte", "vue" },
-    --       }),
-    --     },
-    --   }
-    -- end,
-    opts = function(_, opts)
+    -- Need to override the default sources table instead of doing table.insert
+    -- in order to override the lazy plugin's default sources.
+    opts = function()
       local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.prettierd)
-      -- table.insert(opts.sources, nls.builtins.eslint_d)
-      table.insert(
-        opts.sources,
-        nls.builtins.formatting.stylelint.with({
-          extra_filetypes = { "svelte", "vue" },
-        })
-      )
+      return {
+        sources = {
+          nls.builtins.formatting.prettierd.with({
+            -- Bugged behavior with alacritty's yaml settings,
+            -- causing the file to get truncated on format.
+            disabled_filetypes = { "yaml" },
+          }),
+          nls.builtins.formatting.stylelint.with({
+            extra_filetypes = { "svelte", "vue" },
+          }),
+        },
+      }
     end,
   },
 }
