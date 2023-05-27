@@ -1,15 +1,17 @@
 return {
   {
-    "MunifTanjim/nui.nvim",
-    lazy = true,
-  },
-  {
     "loctvl842/monokai-pro.nvim",
-    -- version = "1.1.2",
     lazy = true,
     opts = {
       transparent_background = true,
-      inc_search = "background",
+      background_clear = {
+        "float_win",
+        "toggleterm",
+        "telescope",
+        "which-key",
+        "renamer",
+        "neo-tree",
+      },
       italic_comments = true,
       override = function(c)
         ColorColumn = { bg = c.base.dimmed3 }
