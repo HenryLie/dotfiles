@@ -13,8 +13,12 @@ return {
         "neo-tree",
       },
       italic_comments = true,
-      override = function(c)
-        ColorColumn = { bg = c.base.dimmed3 }
+      override = function(colors)
+        return {
+          CursorColumn = {
+            bg = colors.base.dimmed5,
+          },
+        }
       end
     },
   },
