@@ -41,15 +41,15 @@ detectMouseDown = hs.eventtap.new({hs.eventtap.event.types.otherMouseDown, hs.ev
         isForwardHeld = e:getButtonState(4)
         isBackForwardHeld = isBackHeld and isForwardHeld
 
-        -- if isBackPressed then
-        --     if isForwardHeld then
-        --         return false
-        --     end
-        --     return true
-        -- end
-        -- if isForwardPressed then
-        --     return true
-        -- end
+        if isBackPressed then
+            if isForwardHeld then
+                return false
+            end
+            return true
+        end
+        if isForwardPressed then
+            return true
+        end
 
         if isWheelDown or isWheelUp then
             if isBackForwardHeld then
