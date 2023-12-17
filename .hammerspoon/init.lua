@@ -1,3 +1,13 @@
+-- highlight active window
+hs.window.highlight.ui.overlay=true
+hs.window.highlight.ui.overlayColor={0, 0, 0, 0.2}
+wf = hs.window.filter.new()
+wf:subscribe(hs.window.filter.windowFocused, function ()
+    hs.window.highlight.start(nil,wf)
+end)
+
+
+-- alt-tab to switch between windows
 hs.window.switcher.ui.showThumbnails = true
 hs.window.switcher.ui.showSelectedThumbnail = false
 hs.window.switcher.ui.titleBackgroundColor = {0,0,0,0}
