@@ -14,6 +14,7 @@ end
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "AdventureTime"
+config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 0.75
 config.enable_tab_bar = false
 config.freetype_load_target = "Light"
