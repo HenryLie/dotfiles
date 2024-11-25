@@ -58,10 +58,10 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 12
 inner.vertical =   12
-outer.left =       12
-outer.bottom =     12
-outer.top =        12
-outer.right =      12
+outer.left =       18
+outer.top =        18
+outer.bottom =     18
+outer.right =      18
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -100,7 +100,7 @@ alt-comma = 'layout accordion horizontal vertical'
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-n = 'focus left'
 alt-e = 'focus --boundaries-action wrap-around-the-workspace up'
-alt-i = 'focus --boundaries-actio wrap-around-the-workspace down'
+alt-i = 'focus --boundaries-action wrap-around-the-workspace down'
 alt-o = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
@@ -108,6 +108,11 @@ alt-shift-n = 'move left'
 alt-shift-e = 'move up'
 alt-shift-i = 'move down'
 alt-shift-o = 'move right'
+
+# alt-shift-n = 'join-with left'
+# alt-shift-e = 'join-with up'
+# alt-shift-i = 'join-with down'
+# alt-shift-o = 'join-with right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
@@ -197,7 +202,7 @@ backspace = ['close-all-windows-but-current', 'mode main']
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
 
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+alt-shift-n = ['join-with left', 'mode main']
+alt-shift-e = ['join-with up', 'mode main']
+alt-shift-i = ['join-with down', 'mode main']
+alt-shift-o = ['join-with right', 'mode main']
