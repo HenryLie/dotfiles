@@ -120,6 +120,7 @@ alt-shift-equal = 'resize smart +50'
 
 alt-f = 'fullscreen'
 alt-shift-f = 'layout floating tiling'
+alt-m = 'focus-monitor --wrap-around next'
 alt-shift-r = 'reload-config'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
