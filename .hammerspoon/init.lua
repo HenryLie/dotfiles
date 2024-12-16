@@ -59,6 +59,14 @@ hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function()
 	end
 end)
 
+hs.window.filter.default:subscribe(hs.window.filter.windowMoved, function()
+	if highlight then
+		highlight:delete()
+		highlight = nil
+	end
+	highlightWindow()
+end)
+
 -- alt-tab to switch between windows
 hs.window.switcher.ui.showThumbnails = true
 hs.window.switcher.ui.showSelectedThumbnail = false
