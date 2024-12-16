@@ -29,3 +29,6 @@ vim.wo.foldlevel = 99
 -- Treesitter
 -- Consider using scss parser for css as described in https://github.com/nvim-treesitter/nvim-treesitter#adding-parsers
 vim.treesitter.language.register("devicetree", "keymap")
+
+-- Use git as root dir detection mechanism instead of LSP (e.g. for monorepos)
+vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
