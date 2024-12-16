@@ -49,7 +49,7 @@ automatically-unhide-macos-hidden-apps = false
 preset = 'qwerty'
 
 [workspace-to-monitor-force-assignment]
-1 = 1                            # Monitor sequence number from left to right. 1-based indexing
+1 = 1 # Monitor sequence number from left to right. 1-based indexing
 2 = 2
 3 = 3
 
@@ -62,11 +62,11 @@ preset = 'qwerty'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 12
-inner.vertical =   12
-outer.left =       18
-outer.top =        18
-outer.bottom =     18
-outer.right =      18
+inner.vertical = 12
+outer.left = 18
+outer.top = 18
+outer.bottom = 18
+outer.right = 18
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -131,10 +131,17 @@ alt-shift-semicolon = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-alt-f = 'fullscreen'
-alt-shift-f = 'layout floating tiling'
+# z for zoom/zen mode
+# This is because f won't work for both qwerty and colemak
+# f in colemak is e in qwerty, and e is already used for moving focus to adjacent windows.
+alt-z = 'fullscreen'
+alt-shift-z = 'layout floating tiling'
 alt-m = 'focus-monitor --wrap-around next'
+
 alt-shift-r = 'reload-config'
+
+# For built-in keyboard
+alt-shift-s = 'reload-config'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -159,7 +166,10 @@ alt-shift-3 = 'move-node-to-workspace 3'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
