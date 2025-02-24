@@ -31,9 +31,17 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+config.max_fps = 120
+config.animation_fps = 30
 
 if wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 10
+end
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_domain = 'WSL:kali-linux'
+	config.front_end = "OpenGL"
+	config.freetype_load_flags = "DEFAULT"
 end
 
 -- and finally, return the configuration to wezterm
