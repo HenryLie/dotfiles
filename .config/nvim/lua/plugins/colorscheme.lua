@@ -2,6 +2,9 @@ return {
   {
     "loctvl842/monokai-pro.nvim",
     lazy = true,
+    dependencies = {
+      "pwntester/octo.nvim", -- Resolve the issue with popup on startup
+    },
     opts = {
       transparent_background = true,
       background_clear = {
@@ -19,7 +22,7 @@ return {
             bg = colors.base.dimmed5,
           },
         }
-      end
+      end,
     },
   },
   {
