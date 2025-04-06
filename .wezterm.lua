@@ -39,7 +39,7 @@ if wezterm.target_triple == "aarch64-apple-darwin" then
 end
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_domain = 'WSL:kali-linux'
+	config.default_domain = "WSL:kali-linux"
 	config.front_end = "OpenGL"
 	config.freetype_load_flags = "DEFAULT"
 end
