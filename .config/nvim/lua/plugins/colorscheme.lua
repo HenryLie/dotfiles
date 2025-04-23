@@ -1,21 +1,17 @@
 return {
   {
     "loctvl842/monokai-pro.nvim",
-    lazy = true,
-    dependencies = {
-      "pwntester/octo.nvim", -- Resolve the issue with popup on startup
-    },
     opts = {
       transparent_background = true,
       background_clear = {
         "float_win",
         "toggleterm",
         "telescope",
+        "telescope",
         "which-key",
         "renamer",
         "neo-tree",
       },
-      italic_comments = true,
       override = function(colors)
         return {
           CursorColumn = {
