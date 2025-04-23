@@ -23,6 +23,7 @@ config.freetype_render_target = "Normal"
 config.freetype_load_flags = "NO_HINTING"
 config.font = wezterm.font_with_fallback({ "LigaHack Nerd Font", { family = "Noto Sans JP" } })
 config.font_size = 9
+config.cell_width = 0.9
 config.front_end = "WebGpu"
 config.window_decorations = "RESIZE"
 config.window_padding = {
