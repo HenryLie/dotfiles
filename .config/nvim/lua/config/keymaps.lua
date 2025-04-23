@@ -48,3 +48,7 @@ map("n", "<C-A-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window 
 map("n", "<C-A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 map("t", "<esc><esc>", "<C-\\><C-N>", { desc = "Exit terminal focus" })
+
+map({ "n", "x", "o" }, "f", "<cmd>HopWord<CR>", { desc = "Hop Word" })
+map({ "n", "x", "o" }, "F", "<cmd>HopCamelCase<CR>", { desc = "Hop CamelCase" })
+map({ "n", "x", "o" }, "t", "<cmd>HopPattern<CR>", { desc = "Hop Pattern" })
