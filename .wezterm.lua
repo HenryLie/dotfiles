@@ -19,7 +19,6 @@ config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 0.75
 config.enable_tab_bar = false
 config.freetype_load_target = "Light"
-config.freetype_render_target = "Normal"
 config.freetype_load_flags = "NO_HINTING"
 config.font = wezterm.font_with_fallback({ "LigaHack Nerd Font", { family = "Noto Sans JP" } })
 config.font_size = 9
