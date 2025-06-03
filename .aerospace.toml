@@ -160,6 +160,7 @@ alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-s = 'mode service'
+alt-r = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
