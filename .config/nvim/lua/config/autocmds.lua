@@ -3,9 +3,16 @@
 -- Add any additional autocmds here
 
 -- Disable autoformat for slidev files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "markdown" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "markdown" },
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufAdd" }, {
+--   afile = "slides.md",
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
