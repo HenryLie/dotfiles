@@ -5,19 +5,19 @@ return {
     keys = function()
       return {
         {
-          "<leader>tf",
+          "<leader>tt",
           "<cmd>ToggleTerm direction=float<CR>",
-          desc = "gh dash (toggleterm)",
+          desc = "floating terminal",
         },
         {
           "<leader>tg",
           "<cmd>lua Ghdash_toggle()<CR>",
-          desc = "gh dash (toggleterm)",
+          desc = "gh dash",
         },
         {
           "<leader>td",
           "<cmd>lua Lazydocker_toggle()<CR>",
-          desc = "lazydocker (toggleterm)",
+          desc = "lazydocker",
         },
       }
     end,
@@ -30,6 +30,7 @@ return {
         close_on_exit = true,
         on_open = function(term)
           vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true }) -- Still not overriding the default q for macro recording keybinding
         end,
         count = 100,
       })
