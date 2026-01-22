@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.foldmethod = "indent"
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
 if vim.fn.has("wsl") == 1 then
   -- Taken from https://neovim.io/doc/user/provider.html#clipboard-wsl
@@ -29,6 +29,7 @@ vim.wo.foldlevel = 99
 -- Treesitter
 -- Consider using scss parser for css as described in https://github.com/nvim-treesitter/nvim-treesitter#adding-parsers
 vim.treesitter.language.register("devicetree", "keymap")
+vim.treesitter.language.register("frontmatter", "markdown")
 
 -- Use git as root dir detection mechanism instead of LSP (e.g. for monorepos)
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
