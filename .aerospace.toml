@@ -157,8 +157,8 @@ alt-5 = 'workspace 5'
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-alt-shift-4 = ['move-node-to-workspace 3', 'workspace 4']
-alt-shift-5 = ['move-node-to-workspace 3', 'workspace 5']
+alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 # alt-tab = 'workspace-back-and-forth'
@@ -172,10 +172,7 @@ alt-r = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = [
-  'layout floating tiling',
-  'mode main',
-] # Toggle between floating and tiling layout
+f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
@@ -191,3 +188,10 @@ alt-shift-j = ['join-with left', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with down', 'mode main']
 alt-shift-semicolon = ['join-with right', 'mode main']
+
+# Zen PIP auto-float
+[[on-window-detected]]
+if.app-name-regex-substring = '(?i)zen'
+if.window-title-regex-substring = '(?i)picture-in-picture'
+run = []
+
