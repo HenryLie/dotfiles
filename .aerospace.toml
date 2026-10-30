@@ -11,6 +11,40 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
+# Move browser PiP only when its previous workspace is no longer visible.
+exec-on-workspace-change = ['/usr/bin/ruby', '-rjson', '-ropen3', '-e', '''
+  aerospace = '/opt/homebrew/bin/aerospace'
+  previous = ENV['AEROSPACE_PREV_WORKSPACE']
+  exit if previous.nil? || previous.empty?
+
+  def query(*args)
+    output, status = Open3.capture2(*args)
+    exit unless status.success?
+    output
+  end
+
+  visible = query(aerospace, 'list-workspaces', '--monitor', 'all', '--visible').lines.map(&:strip)
+  exit if visible.include?(previous)
+
+  patterns = {
+    'app.zen-browser.zen' => /picture[- ]in[- ]picture/i,
+    'com.google.Chrome' => /picture[- ]in[- ]picture|^Meet - (?!.* - Google Chrome$)/i
+  }
+  windows = patterns.flat_map do |bundle_id, pattern|
+    JSON.parse(query(aerospace, 'list-windows', '--workspace', previous,
+                     '--app-bundle-id', bundle_id, '--json')).select do |window|
+      window['window-title'].to_s.match?(pattern)
+    end
+  end
+  windows.each do |window|
+    visible = query(aerospace, 'list-workspaces', '--monitor', 'all', '--visible').lines.map(&:strip)
+    break if visible.include?(previous)
+    focused = query(aerospace, 'list-workspaces', '--focused').strip
+    next if focused.empty? || focused == previous
+    system(aerospace, 'move-node-to-workspace', '--window-id', window['window-id'].to_s, focused)
+  end
+''']
+
 # Start AeroSpace at login
 start-at-login = true
 
@@ -189,9 +223,13 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with down', 'mode main']
 alt-shift-semicolon = ['join-with right', 'mode main']
 
-# Zen PIP auto-float
+# Browser PiP auto-float
 [[on-window-detected]]
 if.app-name-regex-substring = '(?i)zen'
-if.window-title-regex-substring = '(?i)picture-in-picture'
-run = []
+if.window-title-regex-substring = '(?i)picture[- ]in[- ]picture'
+run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+if.window-title-regex-substring = '(?i)picture[- ]in[- ]picture|^Meet - (?!.* - Google Chrome$)'
+run = ['layout floating']
